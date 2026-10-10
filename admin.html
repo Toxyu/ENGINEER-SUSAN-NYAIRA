@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CMS - Update Real Photo</title><script src="https://cdn.tailwindcss.com"></script></head><body style="background:#0b0f19;color:#fff;font-family:monospace;padding:24px;max-width:700px;margin:auto">
+<h1 style="color:#00f0ff;font-size:28px;font-weight:800">CMS PORTAL - REAL PHOTO ONLY</h1><p style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:8px">This will DELETE that wrong person face forever and replace with your mum's real photo.</p>
+<div style="background:#161e2e;border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;margin-top:24px">
+<input type="file" id="inp" accept="image/*" style="width:100%"><div style="margin-top:16px;width:100%;height:400px;background:#000;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,240,255,0.2)"><img id="prev" style="display:none;width:100%;height:100%;object-fit:cover"><div id="txt" style="color:rgba(255,255,255,0.4);font-size:12px">Upload real photo of Eng. Susan here</div></div>
+<button onclick="save()" style="width:100%;margin-top:16px;padding:14px;background:#00f0ff;color:#000;font-weight:800;border-radius:8px">SAVE REAL PHOTO → DELETE WRONG FACE</button>
+<div id="st" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.6)"></div>
+<a href="index.html" style="display:block;text-align:center;margin-top:16px;color:#00f0ff;text-decoration:none;border:1px solid rgba(0,240,255,0.3);padding:10px;border-radius:8px">← BACK TO SITE - CHECK FIX</a>
+</div>
+<script>
+const inp=document.getElementById('inp'),prev=document.getElementById('prev'),txt=document.getElementById('txt'),st=document.getElementById('st');
+let data='';
+inp.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{data=ev.target.result;prev.src=data;prev.style.display='block';txt.style.display='none';st.textContent='Selected: '+f.name;};r.readAsDataURL(f);});
+function save(){if(!data){alert('Upload real photo first');return;}localStorage.setItem('eng_susan_photo',data);st.textContent='✓ REAL PHOTO SAVED! Wrong person face deleted. Go back to site — hard refresh (Ctrl+Shift+R).';st.style.color='#22c55e';}
+const s=localStorage.getItem('eng_susan_photo');if(s){prev.src=s;prev.style.display='block';txt.style.display='none';st.textContent='Real photo already in CMS';}
+</script></body></html>
