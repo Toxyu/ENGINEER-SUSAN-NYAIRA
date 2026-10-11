@@ -1,27 +1,23 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>SUSAN NYAIRA GATHUKI | C.V. Portfolio - Civil Engineer</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>SUSAN NYAIRA GATHUKI | C.V. Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07090e;--card:#101525;--cyan:#00f0ff;--amber:#ffb700;--green:#00ff66;--muted:#64748b;--text:#f1f5f9}
-*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'Space Grotesk';overflow-x:hidden;-webkit-font-smoothing:antialiased}
-canvas#field{position:fixed;inset:0;z-index:-2}
-.grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(0,240,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.05) 1px,transparent 1px);background-size:42px 42px;animation:gm 22s linear infinite}
+:root{--bg:#07090e;--card:#101525;--cyan:#00f0ff;--amber:#ffb700;--green:#00ff66;--muted:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:#f1f5f9;font-family:'Space Grotesk';overflow-x:hidden}
+canvas#field{position:fixed;inset:0;z-index:-2}.grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(0,240,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.05) 1px,transparent 1px);background-size:42px 42px;animation:gm 22s linear infinite}
 @keyframes gm{to{background-position:42px 42px}}
-#boot{position:fixed;inset:0;background:var(--bg);z-index:9999;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:8px;font-family:'JetBrains Mono';font-size:11px}
-.boot{opacity:0;transform:translateX(-12px)}
+#boot{position:fixed;inset:0;background:var(--bg);z-index:9999;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:8px;font-family:'JetBrains Mono';font-size:11px}.boot{opacity:0;transform:translateX(-12px)}
 .nav{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(7,9,14,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,240,255,0.14);font-family:'JetBrains Mono';font-size:10px}
 .dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green);animation:pulse 1s infinite;display:inline-block}
 @keyframes pulse{50%{transform:scale(1.4)}}
 .hero{max-width:1200px;margin:auto;padding:20px 14px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px}
 @media(max-width:860px){.hero{grid-template-columns:1fr}}
 .eyebrow{font-family:'JetBrains Mono';font-size:8px;letter-spacing:0.28em;color:var(--amber);display:flex;flex-wrap:wrap;gap:8px}
-.title{margin-top:12px;line-height:0.88;font-weight:800}
-.line{display:block;overflow:hidden}
-.char{display:inline-block;opacity:0;transform-origin:bottom}
+.title{margin-top:12px;line-height:0.88;font-weight:800}.line{display:block;overflow:hidden}.char{display:inline-block;opacity:0;transform-origin:bottom}
 @keyframes danceIn{0%{transform:translateY(120%) rotateX(-80deg) scale(0.7);opacity:0}60%{transform:translateY(-8%) rotateX(15deg) scale(1.1);opacity:1}100%{transform:translateY(0) rotateX(0) scale(1);opacity:1}}
 .wave{animation:wave 3s ease-in-out infinite}
-@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 .char:hover{animation:bounce 0.5s ease!important;color:var(--amber)!important}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px) scale(1.15)}}
+@keyframes bounce{50%{transform:translateY(-14px) scale(1.15)}}
 .desc{color:#94a3b8;font-size:12.5px;line-height:1.6;margin-top:12px}
 .site{margin-top:14px;background:linear-gradient(180deg,rgba(16,21,37,0.95),rgba(10,14,26,0.7));border:1px solid rgba(0,240,255,0.18);border-radius:14px;padding:12px;position:relative;overflow:hidden}
 .top{font-family:'JetBrains Mono';font-size:9px;color:var(--muted);display:flex;justify-content:space-between}
@@ -35,98 +31,95 @@ canvas#field{position:fixed;inset:0;z-index:-2}
 .met.bar{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--amber));width:0}
 .sec{max-width:1200px;margin:auto;padding:34px 14px}
 .k{font-family:'JetBrains Mono';font-size:8px;letter-spacing:0.3em;color:var(--amber)}.t{font-size:clamp(20px,5vw,30px);font-weight:800;margin-top:6px}
-.cardLive{background:linear-gradient(180deg,rgba(16,21,37,0.95),rgba(10,14,26,0.7));border:1px solid rgba(0,240,255,0.13);border-radius:12px;padding:14px;transition:0.35s;position:relative;overflow:hidden}
-.cardLive:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 12px 28px rgba(0,0,0,0.5),0 0 18px rgba(0,240,255,0.12)}
+.cardLive{background:linear-gradient(180deg,rgba(16,21,37,0.95),rgba(10,14,26,0.7));border:1px solid rgba(0,240,255,0.13);border-radius:12px;padding:14px;position:relative;overflow:hidden}
 .cardLive::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.06),transparent);animation:sweep 3.2s infinite}
 @keyframes sweep{100%{left:200%}}
 .timeline{position:relative;margin-top:18px;padding-left:22px}
 .timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--amber));opacity:0.5}
 .tItem{position:relative;background:rgba(16,21,37,0.9);border:1px solid rgba(0,240,255,0.12);border-radius:10px;padding:12px 14px;margin-bottom:12px;opacity:0;transform:translateX(12px)}
 .tItem::before{content:'';position:absolute;left:-20px;top:16px;width:10px;height:10px;background:var(--cyan);border-radius:50%;box-shadow:0 0 10px var(--cyan)}
-.tItem.y{font-family:'JetBrains Mono';font-size:9px;color:var(--cyan)}.tItem h4{font-size:13px;margin-top:2px}.tItem p{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}
 </style></head><body>
 <canvas id="field"></canvas><div class="grid"></div>
 <div id="boot">
-<div class="boot" style="color:var(--green)">> CURRICULUM VITAE LOADED: SUSAN NYAIRA GATHUKI • DOB 22/11/1976 • ID 20353921 • +254-723559929</div>
-<div class="boot" style="color:var(--cyan)">> EDUCATION: Kenya Polytechnic University College — Diploma Civil Eng | Kabare Girls | Gathambi Primary</div>
-<div class="boot" style="color:var(--amber)">> 2022-DATE WITTS Mau-Mau Lot2B | 2024-25 MASTERS PRICE PM | 2019-23 Kinde Voi/Changamwe | 2016-19 NGM Kiamutugu/Kahurura</div>
-<div class="boot" style="color:#fff">> 2012-16 Crestar Cheptea-Baraton | 2010-12 Funan Thika/Mukuru | 2009-10 Enterprise | 2007-09 Ministry | 2000-03 Kirinyaga Draughts Lady</div>
+<div class="boot" style="color:var(--green)">> C.V. LOADED: SUSAN NYAIRA GATHUKI • NAIROBI, KE • DOB 22/11/1976</div>
+<div class="boot" style="color:var(--cyan)">> EDUCATION: Kenya Polytechnic Diploma Civil Eng</div>
+<div class="boot" style="color:var(--amber)">> EXPERIENCE: WITTS Mau-Mau Lot2B | Kinde Voi/Changamwe | NGM Kiamutugu/Kahurura | Crestar Cheptea | Funan Thika | Enterprise</div>
+<div class="boot" style="color:#fff">> LIVE ENGINEER ANIMATIONS ONLINE...</div>
 </div>
-<div class="nav"><div>[ ENG-<span style="color:var(--cyan)">SUSAN-NYAIRA</span> ] • Nairobi, KE</div><div style="display:flex;gap:6px;align-items:center"><span class="dot"></span> LIVE FROM C.V.</div><a href="admin.html" style="color:var(--cyan);text-decoration:none;border:1px solid rgba(0,240,255,0.3);padding:5px 10px;border-radius:20px">CMS →</a></div>
+<div class="nav"><div id="logo" style="cursor:pointer" title="Tap 5x for admin">[ ENG-<span style="color:var(--cyan)">SUSAN-NYAIRA</span> ] • Nairobi, KE</div><div style="display:flex;gap:6px;align-items:center"><span class="dot"></span> LIVE FROM C.V.</div><div style="font-size:8px;color:var(--muted)">PRIVATE CMS</div></div>
 
 <section class="hero">
 <div>
 <div class="eyebrow"><span>● DIPLOMA CIVIL ENG • KENYA POLYTECHNIC</span><span>● 25 YRS SINCE 2000</span><span>● AUTOCAD • MS EXCEL</span></div>
 <h1 class="title" id="title"><span class="line" id="l1"></span><span class="line" id="l2"></span></h1>
-<p class="desc"><b style="color:#fff">Career Objective:</b> To perform well my responsibilities hence exposing my knowledge and skill to enable me gain experience and attaining my goal of becoming a Civil Engineer. <br>Lang: English, Kiswahili, Kikuyu. Christian. Female. Email: susannyaira@gmail.com</p>
+<p class="desc"><b style="color:#fff">Career Objective:</b> To perform well my responsibilities hence exposing my knowledge and skill to enable me gain experience and attaining my goal of becoming a Civil Engineer.<br>Lang: English, Kiswahili, Kikuyu. susannyaira@gmail.com • +254723559929</p>
 
 <div class="site">
-<div class="top"><span>CHAINAGE: <span id="chain" style="color:var(--cyan)">KM 0+000</span> • LIVE LEVELING • AUTOCAD CROSS SECTION</span><span style="color:var(--amber)">PLOTTING PROFILES</span></div>
+<div class="top"><span>CHAINAGE: <span id="chain" style="color:var(--cyan)">KM 0+000</span> • LIVE LEVELING</span><span style="color:var(--amber)">PLOTTING PROFILES</span></div>
 <svg class="svgBox" viewBox="0 0 400 70"><path class="path" id="roadPath" d="M10,55 Q90,12 190,36 T390,20"/><path class="tower" id="towerPath" d="M320,60 L330,10 L340,60 M325,38 L335,38 M322,50 L338,50"/><g id="levelG"><line x1="20" y1="45" x2="70" y2="45" stroke="#00f0ff" stroke-width="1.2"/><circle cx="70" cy="45" r="4" fill="none" stroke="#ffb700" stroke-width="1.2"/><line x1="70" y1="45" x2="70" y2="60" stroke="#ffb700" stroke-dasharray="3 3"/></g></svg>
 <div style="display:flex;gap:6px"><div style="flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden"><div id="p1" style="height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--amber))"></div></div><div style="flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden"><div id="p2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--amber),var(--green))"></div></div></div>
 </div>
 
 <div class="metrics" id="metrics">
-<div class="met" data-t="25"><div class="n" id="m1">0</div><div class="l">YEARS EXPERIENCE<br>2000 → 2025 DRAUGHTS LADY TO INSPECTOR</div><div class="bar"></div></div>
-<div class="met" data-t="11"><div class="n" id="m2">0</div><div class="l">PROJECTS FROM C.V.<br>ROADS, WATER, POWER STATIONS</div><div class="bar"></div></div>
-<div class="met" data-t="6"><div class="n" id="m3">0</div><div class="l">EMPLOYERS<br>WITTS, KINDE, NGM, CRE-STAR, FUNAN, MINISTRY</div><div class="bar"></div></div>
-<div class="met" data-t="4"><div class="n" id="m4">0</div><div class="l">132/33kV SITES<br>VOI, KIAMUTUGU, KAHURURA, CHANGAMWE</div><div class="bar"></div></div>
+<div class="met" data-t="25"><div class="n" id="m1">0</div><div class="l">YEARS EXPERIENCE<br>2000 → 2025</div><div class="bar"></div></div>
+<div class="met" data-t="11"><div class="n" id="m2">0</div><div class="l">PROJECTS FROM C.V.<br>ROADS, WATER, POWER</div><div class="bar"></div></div>
+<div class="met" data-t="6"><div class="n" id="m3">0</div><div class="l">EMPLOYERS<br>WITTS, KINDE, NGM, CRE-STAR</div><div class="bar"></div></div>
+<div class="met" data-t="4"><div class="n" id="m4">0</div><div class="l">132/33kV SITES<br>VOI, KIAMUTUGU, KAHURURA</div><div class="bar"></div></div>
 </div>
 
-<div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button onclick="document.getElementById('exp').scrollIntoView({behavior:'smooth'})" style="padding:11px 16px;border-radius:8px;background:var(--cyan);color:#000;font-family:'JetBrains Mono';font-size:11px;font-weight:700;border:none;cursor:pointer">VIEW FULL C.V. TIMELINE →</button><a href="admin.html" style="padding:11px 16px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;font-family:'JetBrains Mono';font-size:11px;text-decoration:none">CMS • ADD REAL PHOTO + BLOG</a></div>
+<button onclick="document.getElementById('exp').scrollIntoView({behavior:'smooth'})" style="margin-top:14px;padding:11px 16px;border-radius:8px;background:var(--cyan);color:#000;font-family:'JetBrains Mono';font-size:11px;font-weight:700;border:none;cursor:pointer">VIEW FULL C.V. TIMELINE →</button>
 </div>
 
-<div class="cardLive">
+<!-- THIS IS THE PLACE YOU MARKED - NOW CMS CONTROLLED -->
+<div class="cardLive" id="profileCard">
 <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:9px"><span style="color:var(--cyan);border:1px solid rgba(0,240,255,0.3);padding:3px 7px;border-radius:4px">SYS-01 // LIVE PROFILE • C.V. VERIFIED</span><span style="color:var(--green)">● LIVE</span></div>
-<div style="width:100%;aspect-ratio:1;border-radius:12px;background:radial-gradient(100% 100% at 30% 20%,#1c2540,#0b0f1a);border:1px solid rgba(255,255,255,0.08);overflow:hidden;margin-top:10px;display:flex;align-items:center;justify-content:center;position:relative"><img id="realPhoto" style="width:100%;height:100%;object-fit:cover;display:none"><div id="ph" style="text-align:center"><div style="font-size:42px">👷🏾‍♀️</div><div style="font-family:'JetBrains Mono';font-size:9px;color:#64748b;margin-top:6px">REAL PHOTO VIA CMS<br>SUSAN NYAIRA GATHUKI</div></div></div>
-<div style="margin-top:10px;font-family:'JetBrains Mono';font-size:10px;line-height:1.6;color:#94a3b8"><div>📞 +254-723559929</div><div>✉️ susannyaira@gmail.com</div><div>🆔 20353921 • DOB 22/11/1976</div><div>📚 Kabare Girls • Gathambi Primary</div><div style="margin-top:6px;color:var(--amber)">REF: Eng. Ephraim Ruitha 0729669860 • Eng. E.H. Mugo 0725202378 • Eng. James Kibiru 0722499491</div></div>
+<div style="width:100%;aspect-ratio:1;border-radius:12px;background:radial-gradient(100% 100% at 30% 20%,#1c2540,#0b0f1a);border:1px solid rgba(255,255,255,0.08);overflow:hidden;margin-top:10px;display:flex;align-items:center;justify-content:center;position:relative">
+<img id="realPhoto" style="width:100%;height:100%;object-fit:cover;display:none"><div id="ph" style="text-align:center;padding:20px"><div style="font-size:48px">👷🏾‍♀️</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#64748b;margin-top:8px;line-height:1.4">REAL PHOTO VIA PRIVATE CMS<br>SUSAN NYAIRA GATHUKI<br><span style="font-size:8px;color:var(--cyan)">Admin uploads here → private</span></div></div>
+<div id="liveRing" style="position:absolute;inset:-2px;border:2px dashed rgba(0,240,255,0.25);border-radius:12px;animation:spin 18s linear infinite"></div>
+</div>
+<div style="margin-top:10px;font-family:'JetBrains Mono';font-size:10px;line-height:1.6;color:#94a3b8"><div>📞 +254-723559929</div><div>✉️ susannyaira@gmail.com</div><div>🆔 20353921 • DOB 22/11/1976 • Nairobi, KE</div><div style="margin-top:6px;color:var(--amber);font-size:9px">REF: Eng. Ephraim Ruitha 0729669860 • Eng. E.H. Mugo 0725202378 • Eng. James Kibiru 0722499491</div></div>
 </div>
 </section>
 
-<section class="sec"><div class="k">01 // EDUCATION & OBJECTIVE</div><div class="t">From Real C.V.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px"><div class="cardLive"><div style="font-family:'JetBrains Mono';font-size:9px;color:var(--cyan)">EDUCATION</div><h4 style="font-size:13px;margin-top:6px">Kenya Polytechnic University College</h4><p style="font-size:11px;color:var(--muted);margin-top:4px">Diploma in Civil Engineering<br>Kabare Girls Secondary School — KCSE<br>Gathambi Primary School — KCPE</p></div><div class="cardLive"><div style="font-family:'JetBrains Mono';font-size:9px;color:var(--amber)">COMPUTER & LEADERSHIP</div><h4 style="font-size:13px;margin-top:6px">Ms Word, Ms Excel, AUTOCAD</h4><p style="font-size:11px;color:var(--muted);margin-top:4px">Leadership: Supervisor at Funan & Kirima, Prefect 3 years secondary.<br>Communication: Radio calls & telephone.<br>Voluntary: Church visits to less fortunate & sick.</p></div></div></section>
+<section id="exp" class="sec"><div class="k">02 // WORK EXPERIENCE • 11 POSITIONS • REAL C.V.</div><div class="t">Verified Timeline — Live Drawing</div><div class="timeline" id="timeline"></div></section>
 
-<section id="exp" class="sec"><div class="k">02 // WORK EXPERIENCE • 11 POSITIONS • REAL C.V. TIMELINE</div><div class="t">Verified Experience — Live Drawing</div><div class="timeline" id="timeline"></div></section>
+<section class="sec"><div class="k">03 // DEPLOYED INFRASTRUCTURE • REAL PROJECTS ONLY</div><div class="t">Projects From C.V. — Private CMS Blog</div><div id="grid" style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px"></div></section>
 
-<section class="sec"><div class="k">03 // DEPLOYED INFRASTRUCTURE • REAL PROJECTS ONLY • NO FAKE</div><div class="t">Projects From C.V. — CMS Blog</div><div id="grid" style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px"></div></section>
-
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script>
-// BOOT LIVE
+// SECRET ADMIN ACCESS - Tap logo 5 times
+let taps=0;document.getElementById('logo').addEventListener('click',()=>{taps++;if(taps>=5){window.location.href='admin.html';}setTimeout(()=>taps=0,2000);});
+
+// BOOT
 document.querySelectorAll('.boot').forEach((b,i)=>{setTimeout(()=>{b.style.transition='all 0.55s cubic-bezier(0.16,1,0.3,1)';b.style.opacity='1';b.style.transform='translateX(0)';},150+i*200)});
-setTimeout(()=>{const el=document.getElementById('boot');el.style.transition='all 0.75s cubic-bezier(0.16,1,0.3,1)';el.style.transform='translateY(-100%)';el.style.opacity='0';start();},2400);
-function danceText(txt,id){const c=document.getElementById(id);c.innerHTML='';[...txt].forEach((ch,i)=>{const s=document.createElement('span');s.className='char';s.textContent=ch===' '? '\u00A0' : ch;s.style.animation=`danceIn 0.85s cubic-bezier(0.16,1,0.3,1) ${i*0.042}s both`;c.appendChild(s);setTimeout(()=>{s.classList.add('wave');s.style.animationDelay=(i*0.07)+'s';},1100+i*42);});}
-function start(){danceText('Eng. Susan','l1');setTimeout(()=>danceText('Nyaira Gathuki','l2'),500);counters();engineer();timelineDraw();projectsRender();}
+setTimeout(()=>{const el=document.getElementById('boot');el.style.transition='all 0.75s cubic-bezier(0.16,1,0.3,1)';el.style.transform='translateY(-100%)';el.style.opacity='0';start();},2200);
+function danceText(txt,id){const c=document.getElementById(id);c.innerHTML='';[...txt].forEach((ch,i)=>{const s=document.createElement('span');s.className='char';s.textContent=ch===' '?'\u00A0':ch;s.style.animation=`danceIn 0.85s cubic-bezier(0.16,1,0.3,1) ${i*0.042}s both`;c.appendChild(s);setTimeout(()=>{s.classList.add('wave');s.style.animationDelay=(i*0.07)+'s';},1100+i*42);});}
+function start(){danceText('Eng. Susan','l1');setTimeout(()=>danceText('Nyaira Gathuki','l2'),500);counters();engineer();timelineDraw();projectsRender();loadPhoto();}
 function counters(){document.querySelectorAll('.met').forEach((met,i)=>{setTimeout(()=>{met.style.transition='all 0.6s cubic-bezier(0.16,1,0.3,1)';met.style.opacity='1';met.style.transform='translateY(0)';},i*100);const tgt=parseInt(met.dataset.t);let cur=0;const inc=tgt/70;const nid=met.querySelector('.n').id;const iv=setInterval(()=>{cur+=inc;if(cur>=tgt){cur=tgt;clearInterval(iv);}document.getElementById(nid).textContent=Math.floor(cur);},20);const bar=met.querySelector('.bar');setTimeout(()=>{bar.style.transition='width 1.5s ease';bar.style.width='100%';},i*100+180);});}
 function engineer(){const r=document.getElementById('roadPath'),t=document.getElementById('towerPath');setTimeout(()=>{r.style.transition='stroke-dashoffset 2.4s ease';r.style.strokeDashoffset='0';t.style.transition='stroke-dashoffset 1.6s ease 0.3s';t.style.strokeDashoffset='0';},80);let x=10;setInterval(()=>{x+=1.3;if(x>370)x=10;document.getElementById('levelG').setAttribute('transform',`translate(${x},0)`);document.getElementById('chain').textContent=`KM ${Math.floor(x/30)}+${String(Math.floor((x%30)*10)).padStart(3,'0')}`;document.getElementById('p1').style.width=(x/390*100)+'%';document.getElementById('p2').style.width=((x+70)%390/390*100)+'%';},35);}
-// CANVAS POWER GRID
 const canvas=document.getElementById('field'),ctx=canvas.getContext('2d');function rs(){canvas.width=innerWidth;canvas.height=innerHeight}rs();addEventListener('resize',rs);const pts=[...Array(50)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-0.5)*0.5,vy:(Math.random()-0.5)*0.5}));(function loop(){ctx.clearRect(0,0,canvas.width,canvas.height);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1.1,0,6.28);ctx.fillStyle='rgba(0,240,255,0.6)';ctx.fill();});for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(0,240,255,${0.15*(1-d/120)})`;ctx.lineWidth=0.5;ctx.stroke();}}requestAnimationFrame(loop);})();
-// REAL CV TIMELINE
 const exps=[
-  {y:'FEB 2022 - DATE',t:'WITTS CONSULTING ENGINEERS — Inspector of Works',d:'Project: Construction Mau-mau Road Lot 2B. Duties: Supervision earth works, concrete works, pavement layers, daily reports, safety precautions.'},
-  {y:'MAR 2024 - FEB 2025',t:'MASTERS PRICE SUPPLIERS LTD — Project Manager',d:'Managing/supervision workers, daily reports, program of works, payment certs, work schedules, safety, quality as specified, community wayleaves.'},
-  {y:'JUN 2019 - JUN 2023',t:'Kinde Engineering Works Ltd — Project Manager',d:'Project: Rehabilitation of 132/33kV sub-station at Voi + design supply relocation towers at Changamwe roundabout. Manage schedules, supervision foremen/masons/carpenters, daily/weekly/monthly reports, payment certs, safety, quality, incidents, liaison head office.'},
-  {y:'JUN 2016 - MAY 2019',t:'NGM COMPANY LTD — Projects Supervisor',d:'Project: Construction of 132/33kV power station at Kiamutugu and Kahurura. Manage schedules, supervision, reports, payment certs, safe environment, quality per spec, incidents, safety training.'},
-  {y:'SEP 2012 - 2016',t:'Crestar Consulting Engineers — Senior Inspector of Roads Works',d:'Project: Construction of Cheptea Baraton Kimondi. Inspection Earthworks, Subbase, Base, Concrete, Asphalt. Site meetings minutes, daily/weekly/monthly reports, safety, HIV training seminars.'},
-  {y:'JUN 2010 - AUG 2012',t:'Funan Construction Company — Quantity Surveyor/Project Supervisor',d:'Projects: Relocation water/sewer pipes at Thika road + supply water/sewer line Mukuru kwa Jenga informal settlement. Daily reports, measurement, progress, program per BoQ, standards, payment certs, fittings procurement, pressure testing sterilizing, designs, profiles, layout, setting levels, community wayleave.'},
-  {y:'MAR 2009 - MAY 2010',t:'Crestar Consulting Engineers — Inspector Road Works',d:'Project: Rehabilitation of enterprise road. Inspection drainage works, culverts, IBDs, side slabs, asphalt works.'},
-  {y:'APR 2007 - MAR 2009',t:'Ministry of Public Works — Inspector of Works',d:'Inspection of asphalt works, estimating asphalt quantities.'},
-  {y:'2006 - 2007',t:'Funan Construction Company — Surveyor/Supervisor',d:'Project: Distributors supply water services at Ruai project. Setting out pipelines, excavation supervision, pipe laying, community wayleave engagement.'},
-  {y:'OCT 2003 - NOV 2005',t:'Kirima and Sons — Surveyor/Supervisor',d:'Controlling installation sewer line, road works, paving slabs, leveling and site work supervision.'},
-  {y:'JAN 2000 - APR 2003',t:'Kirinyaga Construction (K) Ltd — Draughts Lady',d:'Reducing levels, plotting cross sections, profiles of roads, estimating all quantities involved in road work.'},
+  {y:'FEB 2022 - DATE',t:'WITTS CONSULTING ENGINEERS — Inspector of Works',d:'Mau-mau Road Lot 2B — Supervision earth works, concrete, pavement, daily reports, safety.'},
+  {y:'MAR 2024 - FEB 2025',t:'MASTERS PRICE SUPPLIERS LTD — Project Manager',d:'Managing workers, reports, program, payment certs, schedules, safety, quality, community wayleaves.'},
+  {y:'JUN 2019 - JUN 2023',t:'Kinde Engineering — Project Manager',d:'Rehab 132/33kV Voi + tower relocation Changamwe roundabout.'},
+  {y:'JUN 2016 - MAY 2019',t:'NGM COMPANY LTD — Supervisor',d:'132/33kV Kiamutugu & Kahurura power stations.'},
+  {y:'SEP 2012 - 2016',t:'Crestar Consulting — Senior Inspector Roads',d:'Cheptea-Baraton Kimondi — earthworks, subbase, base, asphalt.'},
+  {y:'JUN 2010 - AUG 2012',t:'Funan Construction — Quantity Surveyor',d:'Thika Road water/sewer relocation + Mukuru kwa Jenga.'},
+  {y:'MAR 2009 - MAY 2010',t:'Crestar Consulting — Inspector',d:'Enterprise Road rehabilitation.'},
+  {y:'APR 2007 - MAR 2009',t:'Ministry of Public Works — Inspector',d:'Asphalt works, estimating quantities.'},
+  {y:'2006 - 2007',t:'Funan Construction — Surveyor/Supervisor',d:'Ruai water supply.'},
+  {y:'OCT 2003 - NOV 2005',t:'Kirima and Sons — Surveyor/Supervisor',d:'Sewer line, road works, paving slabs.'},
+  {y:'JAN 2000 - APR 2003',t:'Kirinyaga Construction — Draughts Lady',d:'Reducing levels, cross sections, quantity estimation.'},
 ];
-function timelineDraw(){const tl=document.getElementById('timeline');exps.forEach((e,i)=>{const div=document.createElement('div');div.className='tItem';div.innerHTML=`<div class="y">${e.y}</div><h4>${e.t}</h4><p>${e.d}</p>`;tl.appendChild(div);setTimeout(()=>{div.style.transition='all 0.6s cubic-bezier(0.16,1,0.3,1)';div.style.opacity='1';div.style.transform='translateX(0)';},700+i*160);});}
-// PROJECTS FROM REAL CV ONLY - NO FAKE IoT
+function timelineDraw(){const tl=document.getElementById('timeline');exps.forEach((e,i)=>{const div=document.createElement('div');div.className='tItem';div.innerHTML=`<div style="font-family:JetBrains Mono;font-size:9px;color:var(--cyan)">${e.y}</div><h4 style="font-size:13px;margin-top:2px">${e.t}</h4><p style="font-size:11px;color:#64748b;margin-top:4px;line-height:1.5">${e.d}</p>`;tl.appendChild(div);setTimeout(()=>{div.style.transition='all 0.6s cubic-bezier(0.16,1,0.3,1)';div.style.opacity='1';div.style.transform='translateX(0)';},700+i*140);});}
 const realProjects=[
-  {id:'ENG-002',cat:'civil',title:'Mau-Mau Road Lot 2B',desc:'Inspector of Works — WITTS CONSULTING — Supervision earthworks, concrete, pavement layers, daily reports, safety. FEB 2022 - DATE.'},
-  {id:'ENG-003',cat:'power',title:'132/33kV Voi Substation Rehab + Changamwe Towers',desc:'Project Manager — Kinde Engineering — Rehab 132/33kV Voi + relocation towers Changamwe roundabout. JUN 2019 - JUN 2023.'},
-  {id:'ENG-004',cat:'power',title:'132/33kV Kiamutugu & Kahurura Power Stations',desc:'Projects Supervisor — NGM COMPANY LTD — Construction power stations Kiamutugu & Kahurura. JUN 2016 - MAY 2019.'},
-  {id:'ENG-005',cat:'civil',title:'Cheptea-Baraton Kimondi Road',desc:'Senior Inspector — Crestar Consulting — Inspection earthworks, subbase, base, concrete, asphalt. SEP 2012 - 2016.'},
-  {id:'ENG-006',cat:'civil',title:'Thika Road Water/Sewer Relocation + Mukuru kwa Jenga',desc:'Quantity Surveyor — Funan Construction — Relocation pipes Thika Road + supply informal settlement. JUN 2010 - AUG 2012.'},
-  {id:'ENG-007',cat:'civil',title:'Enterprise Road Rehabilitation',desc:'Inspector Road Works — Crestar Consulting — Drainage, culverts, IBDs, side slabs, asphalt. MAR 2009 - MAY 2010.'},
-  {id:'ENG-008',cat:'civil',title:'Asphalt Works — Ministry of Public Works',desc:'Inspector of Works — Inspection asphalt works, estimating quantities. APR 2007 - MAR 2009.'},
-  {id:'ENG-009',cat:'water',title:'Ruai Water Supply — Distributors Supply',desc:'Surveyor/Supervisor — Funan Construction — Setting out pipelines, excavation, pipe laying, community wayleave. 2006-2007.'},
+  {id:'ENG-002',cat:'civil',title:'Mau-Mau Road Lot 2B',desc:'Inspector — WITTS — earthworks, concrete, pavement — FEB 2022-DATE'},
+  {id:'ENG-003',cat:'power',title:'132/33kV Voi + Changamwe Towers',desc:'PM — Kinde — Rehab Voi + relocation Changamwe — JUN 2019-2023'},
+  {id:'ENG-004',cat:'power',title:'132/33kV Kiamutugu & Kahurura',desc:'Supervisor — NGM — Construction power stations — 2016-2019'},
+  {id:'ENG-005',cat:'civil',title:'Cheptea-Baraton Kimondi Road',desc:'Senior Inspector — Crestar — earthworks, subbase, asphalt — 2012-2016'},
+  {id:'ENG-006',cat:'civil',title:'Thika Road Water/Sewer Relocation',desc:'QS — Funan — Thika Road + Mukuru kwa Jenga — 2010-2012'},
 ];
-function projectsRender(){const g=document.getElementById('grid');const all=JSON.parse(localStorage.getItem('eng_susan_projects')||'null')||realProjects;if(!localStorage.getItem('eng_susan_projects'))localStorage.setItem('eng_susan_projects',JSON.stringify(realProjects));g.innerHTML='';all.forEach(p=>{const d=document.createElement('div');d.className='cardLive';d.innerHTML=`<div style="font-family:JetBrains Mono;font-size:8px;color:var(--cyan);border:1px solid rgba(0,240,255,0.25);display:inline-block;padding:2px 6px;border-radius:4px">${p.id} • ${p.cat.toUpperCase()}</div><h3 style="font-size:14px;margin-top:8px">${p.title}</h3><p style="font-size:11px;color:#64748b;margin-top:4px;line-height:1.5">${p.desc}</p>${p.photos?.[0]?`<img src="${p.photos[0]}" style="width:100%;height:130px;object-fit:cover;border-radius:8px;margin-top:8px">`:''}`;g.appendChild(d);});}
-// PHOTO
-const saved=localStorage.getItem('eng_susan_photo');if(saved){const im=document.getElementById('realPhoto');im.src=saved;im.style.display='block';document.getElementById('ph').style.display='none';}
+function projectsRender(){const g=document.getElementById('grid');const all=JSON.parse(localStorage.getItem('eng_susan_projects')||'null')||realProjects;if(!localStorage.getItem('eng_susan_projects'))localStorage.setItem('eng_susan_projects',JSON.stringify(realProjects));g.innerHTML='';all.forEach(p=>{const d=document.createElement('div');d.style.cssText='background:rgba(16,21,37,0.9);border:1px solid rgba(0,240,255,0.12);border-radius:10px;padding:12px';d.innerHTML=`<div style="font-family:JetBrains Mono;font-size:8px;color:var(--cyan);border:1px solid rgba(0,240,255,0.25);display:inline-block;padding:2px 6px;border-radius:4px">${p.id} • ${p.cat.toUpperCase()}</div><h3 style="font-size:14px;margin-top:8px">${p.title}</h3><p style="font-size:11px;color:#64748b;margin-top:4px">${p.desc}</p>${p.photos?.[0]?`<img src="${p.photos[0]}" style="width:100%;height:130px;object-fit:cover;border-radius:8px;margin-top:8px">`:''}`;g.appendChild(d);});}
+function loadPhoto(){const s=localStorage.getItem('eng_susan_photo');if(s){const im=document.getElementById('realPhoto');im.src=s;im.style.display='block';document.getElementById('ph').style.display='none';}}
 </script>
 </body></html>

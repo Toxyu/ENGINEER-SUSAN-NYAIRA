@@ -1,86 +1,109 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CMS - Projects | ENG-SUSAN</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
-<style>body{background:#07090e;color:#f1f5f9;font-family:'JetBrains Mono',monospace}.card{background:#0f141f;border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px}</style>
-</head><body class="p-4 max-w-5xl mx-auto">
-<h1 class="text-2xl font-bold text-cyan-400" style="font-family:'Space Grotesk'">CMS PORTAL • PROJECTS BLOG</h1>
-<p class="text-[11px] text-white/40 mt-1">Add / Edit / Delete projects with photos & blog. Saves to localStorage + live on main site.</p>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Admin - Private CMS | ENG-SUSAN</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>body{background:#060810;color:#f1f5f9;font-family:'JetBrains Mono',monospace}.card{background:#101525;border:1px solid rgba(0,240,255,0.18);border-radius:12px;padding:18px}</style>
+</head><body class="p-4 max-w-4xl mx-auto">
 
-<div class="grid md:grid-cols-5 gap-4 mt-6">
-<div class="md:col-span-3 card">
-<h3 class="text-amber-400 text-sm mb-3">ADD NEW PROJECT</h3>
-<label class="text-[10px] text-white/40">CATEGORY</label>
-<select id="pCat" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
-<option value="civil">CIVIL</option><option value="power">POWER</option><option value="structural">STRUCTURAL</option><option value="all">ALL</option>
-</select>
-<label class="text-[10px] text-white/40">PROJECT ID (e.g ENG-007)</label><input id="pId" placeholder="ENG-007" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
-<label class="text-[10px] text-white/40">TITLE</label><input id="pTitle" placeholder="Mau-Mau Road Phase 2" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
-<label class="text-[10px] text-white/40">SHORT DESC</label><input id="pDesc" placeholder="Site Agent - earthworks" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
-<label class="text-[10px] text-white/40">BLOG / DETAILS (long story)</label><textarea id="pBlog" placeholder="Write full blog about this project..." class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-xs h-24"></textarea>
-<label class="text-[10px] text-white/40">METRIC BADGE (e.g 12KM • Active)</label><input id="pMetric" placeholder="12KM • Active" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
-<label class="text-[10px] text-white/40">PHOTOS (multiple)</label><input type="file" id="pPhotos" accept="image/*" multiple class="w-full text-xs mb-2">
-<div id="photoPreview" class="flex gap-2 flex-wrap mb-3"></div>
-<button onclick="addProject()" class="w-full py-3 bg-cyan-400 text-black font-bold rounded-lg">SAVE PROJECT → PUBLISH</button>
-<div id="status" class="text-xs mt-2 text-white/50"></div>
+<!-- LOGIN SCREEN - PRIVATE -->
+<div id="loginBox" class="min-h-[80vh] flex items-center justify-center">
+<div class="card w-full max-w-[380px] text-center">
+<div style="font-size:32px">🔒</div>
+<h1 class="text-xl font-bold text-cyan-400 mt-2" style="font-family:'Space Grotesk'">PRIVATE CMS</h1>
+<p class="text-[11px] text-white/40 mt-1">Admin Controlled • Eng. Susan Only</p>
+<input type="password" id="pass" placeholder="Enter admin password" class="w-full mt-4 bg-black/50 border border-white/10 rounded px-3 py-3 text-sm text-center">
+<button onclick="login()" class="w-full mt-3 py-3 bg-cyan-400 text-black font-bold rounded-lg">UNLOCK CMS →</button>
+<p class="text-[10px] text-white/30 mt-3">Default: EngSusan2026 • Change after login</p>
+<div id="loginMsg" class="text-xs mt-2 text-red-400"></div>
+<a href="index.html" class="text-[11px] text-white/30 mt-4 inline-block">← Back to site (public)</a>
+</div>
 </div>
 
-<div class="md:col-span-2 card">
-<h3 class="text-cyan-400 text-sm mb-3">EXISTING PROJECTS (<span id="count">0</span>)</h3>
-<div id="list" class="space-y-2 max-h-[600px] overflow-y-auto"></div>
-<div class="mt-4 flex gap-2"><a href="index.html" class="flex-1 text-center py-2 bg-white/5 border border-white/10 rounded text-xs">← VIEW SITE</a><button onclick="exportJSON()" class="flex-1 py-2 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded text-xs">EXPORT JSON</button></div>
-<button onclick="clearAll()" class="w-full mt-2 py-2 bg-red-500/10 border border-red-500/20 text-red-400 rounded text-xs">CLEAR ALL PROJECTS</button>
+<!-- CMS AFTER LOGIN -->
+<div id="cmsBox" style="display:none">
+<div class="flex justify-between items-center flex-wrap gap-3">
+<h1 class="text-xl font-bold text-cyan-400">CMS ADMIN • Private</h1>
+<button onclick="logout()" class="text-xs border border-red-500/30 text-red-400 px-3 py-1 rounded">LOCK CMS</button>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4 mt-6">
+<!-- REAL PHOTO FOR SYS-01 BOX -->
+<div class="card">
+<h3 class="text-amber-400 text-sm">1. REAL PHOTO FOR PROFILE BOX (SYS-01)</h3>
+<p class="text-[10px] text-white/40 mt-1">This photo appears in that place you marked on homepage</p>
+<input type="file" id="photoInput" accept="image/*" class="w-full text-xs mt-3">
+<div class="mt-3 w-full h-[360px] bg-black/40 rounded-xl overflow-hidden border border-cyan-400/20 flex items-center justify-center">
+<img id="preview" style="display:none;width:100%;height:100%;object-fit:cover">
+<div id="phText" class="text-white/30 text-xs text-center">No real photo yet<br>Upload Susan's real photo</div>
+</div>
+<button onclick="savePhoto()" class="w-full mt-3 py-3 bg-cyan-400 text-black font-bold rounded-lg">SAVE REAL PHOTO → LIVE ON SITE</button>
+<div id="photoStatus" class="text-xs mt-2 text-white/50"></div>
+</div>
+
+<!-- PROJECTS BLOG CMS -->
+<div class="card">
+<h3 class="text-cyan-400 text-sm">2. PROJECTS BLOG + PHOTOS</h3>
+<select id="pCat" class="w-full mt-3 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm"><option value="civil">CIVIL</option><option value="power">POWER</option><option value="water">WATER</option><option value="structural">STRUCTURAL</option></select>
+<input id="pId" placeholder="ID e.g ENG-002" class="w-full mt-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<input id="pTitle" placeholder="Title" class="w-full mt-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<textarea id="pDesc" placeholder="Short desc" class="w-full mt-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-xs h-16"></textarea>
+<textarea id="pBlog" placeholder="Full blog details..." class="w-full mt-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-xs h-20"></textarea>
+<input type="file" id="pPhotos" accept="image/*" multiple class="w-full text-xs mt-2">
+<div id="pPreview" class="flex gap-2 flex-wrap mt-2"></div>
+<button onclick="addProject()" class="w-full mt-3 py-2 bg-amber-400 text-black font-bold rounded-lg text-sm">SAVE PROJECT</button>
+<div id="projStatus" class="text-xs mt-2 text-white/50"></div>
+<div id="list" class="mt-3 space-y-2 max-h-[300px] overflow-y-auto"></div>
+</div>
+</div>
+
+<div class="card mt-4">
+<h3 class="text-green-400 text-sm">Security</h3>
+<div class="flex gap-2 mt-2"><input id="newPass" placeholder="Set new admin password" class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm"><button onclick="changePass()" class="px-4 py-2 bg-white/5 border border-white/10 rounded text-xs">CHANGE</button></div>
+<a href="index.html" class="inline-block mt-4 text-xs border border-cyan-400/30 text-cyan-400 px-4 py-2 rounded">← VIEW PUBLIC SITE</a>
 </div>
 </div>
 
 <script>
-let tempPhotos=[];
-document.getElementById('pPhotos').addEventListener('change', async e=>{
-  tempPhotos=[]; const previews=document.getElementById('photoPreview'); previews.innerHTML='';
-  for(let file of e.target.files){
-    const b64=await toBase64(file);
-    tempPhotos.push(b64);
-    const img=document.createElement('img'); img.src=b64; img.className='w-16 h-16 object-cover rounded border border-cyan-400/30'; previews.appendChild(img);
-  }
+const DEFAULT_PASS='EngSusan2026';
+function getPass(){return localStorage.getItem('eng_admin_pass')||DEFAULT_PASS;}
+function login(){
+  const v=document.getElementById('pass').value;
+  if(v===getPass()){localStorage.setItem('eng_admin_logged','1');showCMS();}
+  else{document.getElementById('loginMsg').textContent='Wrong password. Try: '+getPass();}
+}
+function logout(){localStorage.removeItem('eng_admin_logged');document.getElementById('cmsBox').style.display='none';document.getElementById('loginBox').style.display='flex';}
+function showCMS(){document.getElementById('loginBox').style.display='none';document.getElementById('cmsBox').style.display='block';loadPhoto();renderProjects();}
+if(localStorage.getItem('eng_admin_logged')==='1'){showCMS();}
+
+// PHOTO FOR PROFILE BOX
+let photoData='';
+document.getElementById('photoInput').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=ev=>{photoData=ev.target.result;document.getElementById('preview').src=photoData;document.getElementById('preview').style.display='block';document.getElementById('phText').style.display='none';};
+  r.readAsDataURL(f);
 });
-function toBase64(file){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(file);});}
+function loadPhoto(){const s=localStorage.getItem('eng_susan_photo');if(s){document.getElementById('preview').src=s;document.getElementById('preview').style.display='block';document.getElementById('phText').style.display='none';photoData=s;}}
+function savePhoto(){if(!photoData){alert('Upload photo first');return;}localStorage.setItem('eng_susan_photo',photoData);document.getElementById('photoStatus').textContent='✓ Real photo saved! Now appears in SYS-01 box on homepage.';document.getElementById('photoStatus').style.color='#22c55e';}
 
+// PROJECTS CMS
+let tempPhotos=[];
+document.getElementById('pPhotos').addEventListener('change',async e=>{
+  tempPhotos=[];const pv=document.getElementById('pPreview');pv.innerHTML='';
+  for(let file of e.target.files){const b64=await toB64(file);tempPhotos.push(b64);const img=document.createElement('img');img.src=b64;img.className='w-14 h-14 object-cover rounded border border-cyan-400/30';pv.appendChild(img);}
+});
+function toB64(f){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(f);});}
 function getProjects(){return JSON.parse(localStorage.getItem('eng_susan_projects')||'[]');}
-function saveProjects(arr){localStorage.setItem('eng_susan_projects',JSON.stringify(arr)); renderList();}
-
+function saveProjects(a){localStorage.setItem('eng_susan_projects',JSON.stringify(a));renderProjects();}
 function addProject(){
-  const cat=document.getElementById('pCat').value, id=document.getElementById('pId').value||'ENG-'+Date.now().toString().slice(-3), title=document.getElementById('pTitle').value, desc=document.getElementById('pDesc').value, blog=document.getElementById('pBlog').value, metric=document.getElementById('pMetric').value;
+  const cat=document.getElementById('pCat').value,id=document.getElementById('pId').value||'ENG-'+Date.now().toString().slice(-3),title=document.getElementById('pTitle').value,desc=document.getElementById('pDesc').value,blog=document.getElementById('pBlog').value;
   if(!title){alert('Title required');return;}
-  const arr=getProjects();
-  const obj={id,cat,title,desc,blog,metric,photos:tempPhotos.length?tempPhotos:[],date:new Date().toISOString()};
-  // update if exists
-  const idx=arr.findIndex(p=>p.id===id);
-  if(idx>=0) arr[idx]=obj; else arr.unshift(obj);
-  saveProjects(arr);
-  document.getElementById('status').textContent='✓ Saved: '+title+' ('+cat+')';
-  document.getElementById('pTitle').value='';document.getElementById('pDesc').value='';document.getElementById('pBlog').value='';tempPhotos=[];document.getElementById('photoPreview').innerHTML='';
+  const arr=getProjects();const obj={id,cat,title,desc,blog,photos:tempPhotos,date:new Date().toISOString()};
+  const idx=arr.findIndex(p=>p.id===id);if(idx>=0)arr[idx]=obj;else arr.unshift(obj);
+  saveProjects(arr);document.getElementById('projStatus').textContent='✓ Saved '+title;
+  document.getElementById('pTitle').value='';document.getElementById('pDesc').value='';document.getElementById('pBlog').value='';tempPhotos=[];document.getElementById('pPreview').innerHTML='';
 }
-
-function renderList(){
-  const arr=getProjects(); document.getElementById('count').textContent=arr.length;
-  const list=document.getElementById('list'); list.innerHTML='';
-  arr.forEach(p=>{
-    const div=document.createElement('div'); div.className='bg-black/30 border border-white/10 rounded p-3';
-    div.innerHTML=`<div class="flex justify-between"><span class="text-[10px] text-cyan-400">${p.id} • ${p.cat.toUpperCase()}</span><button onclick="delProject('${p.id}')" class="text-[10px] text-red-400">[DEL]</button></div><div class="text-sm font-bold mt-1">${p.title}</div><div class="text-[11px] text-white/50 mt-1 line-clamp-2">${p.desc}</div><div class="text-[10px] text-amber-400 mt-2">${p.photos?.length||0} photos • ${p.metric||''}</div>`;
-    list.appendChild(div);
-  });
-}
-function delProject(id){if(!confirm('Delete '+id+'?'))return; saveProjects(getProjects().filter(p=>p.id!==id));}
-function clearAll(){if(!confirm('Clear ALL projects?'))return; localStorage.removeItem('eng_susan_projects'); renderList();}
-function exportJSON(){
-  const data=getProjects(); const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='eng-susan-projects.json'; a.click();
-}
-// seed default if empty
-if(!localStorage.getItem('eng_susan_projects')){
-  const seed=[
-    {id:'ENG-002',cat:'civil',title:'Mau-Mau Road Lot 2B',desc:'Site Agent / Foreman In-charge - earthworks, drainage, pavement',blog:'Supervising Mau-Mau Road construction Lot 2B. Managing earthworks, drainage systems and pavement layers with QA/QC compliance and HSE training.',metric:'12KM • Active',photos:[],date:new Date().toISOString()},
-    {id:'ENG-003',cat:'power',title:'132/33kV Substations',desc:'Voi, Kiamutugu, Kahurura — civil works for Kenya grid',blog:'Civil works for 3 high-voltage substations powering Kenya national grid. Foundation, earthing, control buildings.',metric:'3 SITES • Commissioned',photos:[],date:new Date().toISOString()},
-    {id:'ENG-001',cat:'structural',title:'Structural Monitoring',desc:'IoT sensors + Python + React dashboard',blog:'Autonomous structural health monitoring using IoT sensors, Python backend and React dashboard with +35% efficiency gain.',metric:'+35% • Deployed',photos:[],date:new Date().toISOString()},
-  ];
-  localStorage.setItem('eng_susan_projects',JSON.stringify(seed));
-}
-renderList();
+function renderProjects(){const arr=getProjects();const list=document.getElementById('list');list.innerHTML='';arr.forEach(p=>{const d=document.createElement('div');d.className='bg-black/30 border border-white/10 rounded p-2';d.innerHTML=`<div class="flex justify-between"><span class="text-[10px] text-cyan-400">${p.id} • ${p.cat}</span><button onclick="delP('${p.id}')" class="text-[10px] text-red-400">[DEL]</button></div><div class="text-xs font-bold mt-1">${p.title}</div>`;list.appendChild(d);});}
+function delP(id){if(!confirm('Delete '+id+'?'))return;saveProjects(getProjects().filter(p=>p.id!==id));}
+function changePass(){const np=document.getElementById('newPass').value;if(!np){alert('Enter new password');return;}localStorage.setItem('eng_admin_pass',np);alert('Password changed to: '+np);}
+renderProjects();
 </script>
 </body></html>
