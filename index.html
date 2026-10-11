@@ -1,75 +1,198 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ENGINEER-SUSAN-NYAIRA | Portfolio</title><link rel="stylesheet" href="styles.css"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"></head><body>
-<div id="boot-loader"><div class="boot-line">> INITIALIZING SYSTEM KERNEL... [OK]</div><div class="boot-line">> LOADING ENGINEERING MODULES [CIVIL / POWER / QA-QC]... [OK]</div><div class="boot-line">> MOUNTING PROJECT DATABASE FROM CMS... [SUCCESS]</div><div class="boot-line">> WELCOME, USER. SYSTEM ONLINE.</div></div>
-<div class="blueprint-container"></div>
-<main style="max-width:1200px;margin:0 auto;padding:clamp(20px,5vw,48px) clamp(14px,3vw,24px);position:relative;z-index:1">
-<header style="margin-bottom:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-<div><p style="color:var(--accent-cyan);font-family:'JetBrains Mono';font-size:10px;letter-spacing:0.2em">[ ENG-SUSAN-NYAIRA ] • <span style="color:var(--accent-green)">● SYSTEM ONLINE</span></p><h1 style="font-size:clamp(26px,6vw,42px);font-weight:800;margin-top:8px">ENGINEER-SUSAN-<span style="color:var(--accent-cyan)">NYAIRA</span></h1></div>
-<a href="admin.html" style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent-cyan);border:1px solid rgba(0,240,255,0.35);padding:8px 14px;border-radius:20px;background:rgba(0,240,255,0.08);text-decoration:none">CMS → MANAGE PROJECTS</a>
-</header>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ENGINEER SUSAN NYAIRA GATHUKI | Builder of Kenya</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+:root{--bg:#07090e;--card:#0f141f;--cyan:#00f0ff;--amber:#ffb700;--green:#00ff66;--muted:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#f1f5f9;font-family:'Space Grotesk';overflow-x:hidden}
+canvas#field{position:fixed;inset:0;z-index:-2;opacity:0.35}
+.blueprint{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(0,240,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.06) 1px,transparent 1px);background-size:48px 48px;animation:gridMove 30s linear infinite}
+@keyframes gridMove{to{background-position:48px 48px}}
 
-<section class="cad-card" style="margin-bottom:28px"><div class="scan-line"></div><h2 style="color:var(--accent-amber)">Builder of Kenya • Civil Engineer</h2><p style="color:var(--text-muted);margin-top:8px;font-size:13px;line-height:1.6">Diploma Civil Eng, Kenya Polytechnic. 25+ years. Use CMS to upload real photo + projects with blogs.</p></section>
+/* BOOT - LIVELY */
+#boot{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,6vw,60px);font-family:'JetBrains Mono';font-size:13px}
+.boot{opacity:0;transform:translateX(-12px)}
+.boot b{color:var(--cyan)}.boot.g{color:var(--green)}.boot.a{color:var(--amber)}
 
-<section>
-<div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px;margin-bottom:16px">
-<div><div style="font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.3em;color:var(--accent-amber)">02 // ENGINEERING WORKS</div><h2 style="font-size:clamp(22px,5vw,32px);font-weight:700;margin-top:4px">Deployed Infrastructure</h2></div>
-<div id="filters" style="display:flex;gap:8px;flex-wrap:wrap">
-<button class="fBtn active" data-f="all" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(0,240,255,0.3);background:rgba(0,240,255,0.12);color:var(--accent-cyan);cursor:pointer">ALL</button>
-<button class="fBtn" data-f="civil" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#94a3b8;cursor:pointer">CIVIL</button>
-<button class="fBtn" data-f="power" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#94a3b8;cursor:pointer">POWER</button>
-<button class="fBtn" data-f="structural" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#94a3b8;cursor:pointer">STRUCTURAL</button>
+/* NAV */
+.nav{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(7,9,14,0.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,240,255,0.15);font-family:'JetBrains Mono';font-size:11px}
+.nav.live{display:flex;gap:8px;align-items:center;color:var(--green)}.dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green);animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+
+/* HERO - LIVE ENGINEERING */
+.hero{max-width:1200px;margin:auto;padding:32px 16px 20px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:24px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.3em;color:var(--amber);display:flex;gap:8px;flex-wrap:wrap}
+.title{font-size:clamp(30px,6vw,64px);font-weight:800;line-height:0.9;margin-top:12px}
+.title.cyan{color:var(--cyan);text-shadow:0 0 20px rgba(0,240,255,0.5)}
+.subtitle{color:var(--muted);font-size:14px;margin-top:10px;line-height:1.6;max-width:560px}
+.type{border-right:2px solid var(--cyan);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+
+/* LIVE ROAD SVG */
+.live-card{background:linear-gradient(180deg,rgba(15,20,31,0.9),rgba(15,20,31,0.6));backdrop-filter:blur(12px);border:1px solid rgba(0,240,255,0.18);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.live-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,240,255,0.02) 3px);pointer-events:none}
+.badge{font-family:'JetBrains Mono';font-size:9px;padding:4px 8px;border-radius:4px;border:1px solid rgba(0,240,255,0.3);color:var(--cyan);display:inline-block}
+.photoBox{width:100%;aspect-ratio:1;border-radius:12px;background:radial-gradient(100% 100% at 30% 20%,#1c2540,#0b0f1a);border:1px solid rgba(255,255,255,0.08);overflow:hidden;position:relative;margin-top:12px;display:flex;align-items:center;justify-content:center}
+.photoBox img{width:100%;height:100%;object-fit:cover;display:none}
+.crane{position:absolute;bottom:0;left:0;width:100%;height:100%;pointer-events:none}
+.road-svg{width:100%;height:90px;margin-top:12px}
+.path{stroke:var(--cyan);stroke-width:1.5;fill:none;stroke-dasharray:600;stroke-dashoffset:600;filter:drop-shadow(0 0 6px var(--cyan))}
+.tower{stroke:var(--amber);stroke-width:1.2;fill:none;stroke-dasharray:400;stroke-dashoffset:400}
+
+/* METRICS - LIVE COUNTING */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+@media(max-width:520px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.met{background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;position:relative;overflow:hidden}
+.met.n{font-family:'JetBrains Mono';font-size:22px;font-weight:800;color:var(--cyan)}.met.l{font-family:'JetBrains Mono';font-size:8px;color:var(--muted);margin-top:2px;letter-spacing:0.12em}
+.met.bar{position:absolute;bottom:0;left:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--amber));width:0}
+
+/* SECTIONS */
+.section{max-width:1200px;margin:auto;padding:40px 16px}
+.sec-k{font-family:'JetBrains Mono';font-size:9px;letter-spacing:0.3em;color:var(--amber)}.sec-t{font-size:clamp(22px,4.5vw,34px);font-weight:800;margin-top:6px}
+.term{background:#0a0e18;border:1px solid rgba(0,240,255,0.15);border-radius:12px;overflow:hidden;margin-top:16px}
+.termHead{display:flex;gap:6px;padding:10px 14px;background:rgba(0,0,0,0.4);border-bottom:1px solid rgba(255,255,255,0.06);align-items:center}
+.termHead span{width:10px;height:10px;border-radius:50%}.termHead span:nth-child(1){background:#ef4444}.termHead span:nth-child(2){background:#ffb700}.termHead span:nth-child(3){background:#00ff66}
+.termBody{padding:16px;font-family:'JetBrains Mono';font-size:12px;line-height:1.8;color:#94a3b8}
+.termBody.c{color:var(--cyan)}.termBody.g{color:var(--green)}.termBody.a{color:var(--amber)}
+
+.grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+.pCard{background:linear-gradient(180deg,rgba(15,20,31,0.95),rgba(15,20,31,0.6));border:1px solid rgba(0,240,255,0.14);border-radius:12px;padding:14px;position:relative;overflow:hidden;transition:0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer}
+.pCard:hover{transform:translateY(-5px) scale(1.01);border-color:var(--cyan);box-shadow:0 14px 36px rgba(0,0,0,0.5),0 0 24px rgba(0,240,255,0.15)}
+.pCard.id{font-family:'JetBrains Mono';font-size:8px;color:var(--cyan);border:1px solid rgba(0,240,255,0.3);padding:3px 6px;border-radius:4px}
+.pCard h3{font-size:15px;margin-top:10px;line-height:1.3}.pCard p{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.pCard.img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-top:10px;border:1px solid rgba(255,255,255,0.08)}
+.badgeM{margin-top:10px;display:inline-block;font-family:'JetBrains Mono';font-size:9px;padding:4px 8px;border-radius:20px;background:rgba(255,183,0,0.12);border:1px solid rgba(255,183,0,0.25);color:var(--amber)}
+</style></head><body>
+<canvas id="field"></canvas><div class="blueprint"></div>
+
+<div id="boot">
+<div class="boot">> BOOTING KENYA INFRASTRUCTURE KERNEL v2026.01 <b>[OK]</b></div>
+<div class="boot a">> LOADING CV: SUSAN NYAIRA GATHUKI • DIPLOMA CIVIL ENG • KENYA POLYTECHNIC</div>
+<div class="boot">> MOUNTING PROJECTS: MAU-MAU LOT 2B | THIKA ROAD | ENTERPRISE | 132kV VOI/KAHURURA/CHANGAMWE</div>
+<div class="boot g">> SYSTEM LIVE • QA/QC • HSE • SITE AGENT • FOREMAN IN-CHARGE • 25YRS</div>
+</div>
+
+<div class="nav"><div>[ ENG-<span style="color:var(--cyan)">SUSAN-NYAIRA</span> ]</div><div class="live"><span class="dot"></span> SYSTEM ONLINE • LIVE ANIMATIONS</div><a href="admin.html" style="color:var(--cyan);text-decoration:none;border:1px solid rgba(0,240,255,0.3);padding:6px 10px;border-radius:20px">CMS →</a></div>
+
+<section class="hero">
+<div>
+<div class="eyebrow"><span>● DIPLOMA CIVIL ENG</span><span>● SITE AGENT</span><span>● 25+ YRS</span><span>● KERICHO, KE</span></div>
+<h1 class="title"><span id="t1"></span><br><span class="cyan" id="t2"></span><span class="type"></span></h1>
+<p class="subtitle" id="sub">Civil Engineer — Mau-Mau Road Lot 2B, Thika Superhighway water/sewer relocation, Enterprise Road, 132/33kV substations Voi, Kiamutugu, Kahurura, Changamwe. Specialized in earthworks, drainage, pavement, QA/QC, HSE training, community safety.</p>
+
+<div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+<button class="live-card" style="padding:10px 16px;border-radius:8px;font-family:'JetBrains Mono';font-size:11px;background:var(--cyan);color:#000;border:none;font-weight:700;cursor:pointer" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">VIEW LIVE WORKS →</button>
+<a href="admin.html" class="live-card" style="padding:10px 16px;border-radius:8px;font-family:'JetBrains Mono';font-size:11px;text-decoration:none;color:#fff">UPDATE REAL PHOTO + BLOG</a>
+</div>
+
+<div class="metrics">
+<div class="met"><div class="n" data-t="25">0</div><div class="l">YEARS</div><div class="bar"></div></div>
+<div class="met"><div class="n" data-t="15">0</div><div class="l">PROJECTS</div><div class="bar"></div></div>
+<div class="met"><div class="n" data-t="1000">0</div><div class="l">KM ROADS</div><div class="bar"></div></div>
+<div class="met"><div class="n" data-t="3">0</div><div class="l">132kV SITES</div><div class="bar"></div></div>
 </div>
 </div>
 
-<div id="projectGrid" style="display:grid;grid-template-columns:1fr;gap:14px"></div>
+<div class="live-card">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="badge">SYS-01 // ENG-PROFILE • LIVE TELEMETRY</span><span style="font-family:'JetBrains Mono';font-size:9px;color:var(--green)">● LIVE</span></div>
+<div class="photoBox" id="photoBox">
+<img id="realPhoto"><div id="ph" style="text-align:center"><div style="font-size:42px">👷🏾‍♀️</div><div style="font-family:'JetBrains Mono';font-size:9px;color:var(--muted);margin-top:8px">REAL PHOTO VIA CMS</div></div>
+<!-- LIVE CRANE ANIMATION -->
+<svg class="crane" viewBox="0 0 200 200"><g id="craneG" opacity="0.25"><path d="M20,180 L20,60 L100,60" stroke="#00f0ff" stroke-width="1" fill="none"/><rect id="load" x="85" y="70" width="12" height="12" fill="#ffb700"/></g></svg>
+</div>
+<!-- LIVE ROAD + TOWER DRAWING -->
+<svg class="road-svg" viewBox="0 0 400 80"><path class="path" id="roadPath" d="M10,60 Q100,20 200,50 T390,30"/><path class="tower" id="towerPath" d="M320,60 L330,10 L340,60 M325,35 L335,35 M328,20 L332,20"/></svg>
+<div style="font-family:'JetBrains Mono';font-size:9px;color:var(--muted);display:flex;justify-content:space-between"><span>ROAD CHAINAGE: <span id="chain" style="color:var(--cyan)">KM 0+000</span></span><span>VOLTAGE: 132kV</span></div>
+</div>
 </section>
-</main>
 
-<!-- BLOG MODAL -->
-<div id="modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);z-index:100;display:none;padding:16px;overflow-y:auto">
-<div style="max-width:700px;margin:40px auto;background:#0f141f;border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;position:relative">
-<button onclick="document.getElementById('modal').style.display='none'" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer;font-family:'JetBrains Mono';font-size:11px">[X] CLOSE</button>
-<div id="modalContent"></div>
+<section class="section">
+<div class="sec-k">01 // ABOUT • REAL C.V. DATA</div><div class="sec-t">Engineer Profile <span style="color:var(--cyan)">[TERMINAL LIVE]</span></div>
+<div class="term"><div class="termHead"><span></span><span></span><span></span><div style="margin-left:12px;font-family:'JetBrains Mono';font-size:10px;color:#64748b">susan@kenya-infra:~$ cat cv.log</div></div>
+<div class="termBody" id="termBody">
+<div><span class="c">></span> NAME: SUSAN NYAIRA GATHUKI • DIPLOMA CIVIL ENG • KENYA POLYTECHNIC UNIVERSITY COLLEGE</div>
+<div><span class="c">></span> ROLE: Civil Engineer | Site Agent | Foreman In-charge Lot 2B Mau-Mau Road</div>
+<div><span class="c">></span> KEY PROJECTS: Mau-Mau Road, Thika Road (Water/Sewer Relocation), Enterprise Road, 132/33kV Voi, Kiamutugu, Kahurura, Changamwe</div>
+<div><span class="c">></span> CORE: Earthworks, Drainage, Pavement Layers, Substation Civil Works, QA/QC, HSE, Toolbox Talks, HIV Awareness</div>
+<div><span class="a">></span> MISSION: Dedicated to infrastructure & sustainable development across Kenya — 25+ years building.</div>
+</div></div>
+</section>
+
+<section id="works" class="section">
+<div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px"><div><div class="sec-k">02 // ENGINEERING WORKS • CMS BLOG</div><div class="sec-t">Deployed Infrastructure</div></div>
+<div style="display:flex;gap:8px"><button class="fBtn active" data-f="all" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid var(--cyan);background:rgba(0,240,255,0.12);color:var(--cyan)">ALL</button><button class="fBtn" data-f="civil" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#64748b">CIVIL</button><button class="fBtn" data-f="power" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#64748b">POWER</button><button class="fBtn" data-f="structural" style="font-family:'JetBrains Mono';font-size:10px;padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#64748b">STRUCTURAL</button></div>
 </div>
-</div>
+<div class="grid" id="grid"></div>
+</section>
+
+<div id="modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(14px);z-index:100;display:none;padding:16px;overflow-y:auto"><div style="max-width:720px;margin:30px auto;background:#0f141f;border:1px solid rgba(0,240,255,0.2);border-radius:14px;padding:20px;position:relative"><button onclick="document.getElementById('modal').style.display='none'" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer;font-family:'JetBrains Mono';font-size:11px">[X]</button><div id="modalC"></div></div></div>
 
 <script>
-function getProjects(){return JSON.parse(localStorage.getItem('eng_susan_projects')||'[]');}
-let activeFilter='all';
-function renderGrid(){
-  const grid=document.getElementById('projectGrid'); const projects=getProjects();
-  const filtered=activeFilter==='all'?projects:projects.filter(p=>p.cat===activeFilter);
-  grid.innerHTML='';
-  if(filtered.length===0){grid.innerHTML='<div style="text-align:center;padding:40px;color:#64748b;font-family:JetBrains Mono;font-size:12px">No projects in this category yet. Add via CMS →</div>'; return;}
-  filtered.forEach(p=>{
-    const card=document.createElement('div'); card.className='cad-card'; card.style.cursor='pointer';
-    card.innerHTML=`<div class="scan-line"></div>
-      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'JetBrains Mono';font-size:9px;color:var(--accent-cyan);border:1px solid rgba(0,240,255,0.3);padding:3px 7px;border-radius:4px">${p.id} • ${p.cat.toUpperCase()}</span><span style="font-family:'JetBrains Mono';font-size:9px;color:var(--text-muted)">${p.photos?.length||0} 📷</span></div>
-      <h3 style="font-size:16px;font-weight:700;margin-top:10px">${p.title}</h3>
-      <p style="color:var(--text-muted);font-size:12px;margin-top:6px;line-height:1.5">${p.desc||''}</p>
-      ${p.photos && p.photos[0]?`<img src="${p.photos[0]}" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-top:12px;border:1px solid rgba(255,255,255,0.08)">`:''}
-      <div style="margin-top:12px"><span style="display:inline-block;font-family:'JetBrains Mono';font-size:10px;padding:5px 10px;border-radius:20px;background:rgba(255,183,0,0.12);color:var(--accent-amber);border:1px solid rgba(255,183,0,0.25)">${p.metric||'View Blog →'}</span></div>`;
-    card.onclick=()=>openBlog(p.id);
-    grid.appendChild(card);
-  });
+// BOOT LIVELY
+gsap.to('.boot',{opacity:1,x:0,duration:0.6,stagger:0.3,ease:'power3.out',delay:0.2});
+gsap.to('#boot',{yPercent:-100,opacity:0,duration:0.9,ease:'power4.inOut',delay:2.6});
+
+// TYPEWRITER + LIVE ROAD
+const t1txt='Eng. Susan', t2txt='Nyaira Gathuki';
+let a=0,b=0;function typeA(){if(a<=t1txt.length){document.getElementById('t1').textContent=t1txt.slice(0,a);a++;setTimeout(typeA,70);}else{typeB();}}function typeB(){if(b<=t2txt.length){document.getElementById('t2').textContent=t2txt.slice(0,b);b++;setTimeout(typeB,90);}else{drawRoad();}}typeA();
+function drawRoad(){
+  gsap.to('#roadPath',{strokeDashoffset:0,duration:2,ease:'power2.out'});
+  gsap.to('#towerPath',{strokeDashoffset:0,duration:1.5,ease:'power2.out',delay:0.5});
+  gsap.to('#chain',{innerText:'KM 12+450',snap:{innerText:1},duration:2});
+  gsap.to('#load',{y:80,duration:2,yoyo:true,repeat:-1,ease:'power1.inOut'});
 }
-function openBlog(id){
-  const p=getProjects().find(x=>x.id===id); if(!p) return;
-  const mc=document.getElementById('modalContent');
-  mc.innerHTML=`<div style="font-family:'JetBrains Mono';font-size:10px;color:var(--accent-cyan);letter-spacing:0.15em">${p.id} // ${p.cat.toUpperCase()}</div>
-    <h2 style="font-size:24px;font-weight:800;margin-top:8px">${p.title}</h2>
-    <p style="color:var(--text-muted);margin-top:8px;font-size:13px">${p.desc||''}</p>
-    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">${p.photos?.map(src=>`<img src="${src}" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.1);margin-bottom:8px">`).join('')||'<div style="color:#64748b;font-size:12px">No photos uploaded yet</div>'}</div>
-    <div style="margin-top:20px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;line-height:1.7;font-size:13px;white-space:pre-wrap">${p.blog||'No blog content yet.'}</div>
-    <div style="margin-top:16px"><span style="font-family:'JetBrains Mono';font-size:11px;padding:6px 12px;background:rgba(255,183,0,0.15);border:1px solid rgba(255,183,0,0.3);border-radius:20px;color:var(--accent-amber)">${p.metric||''}</span></div>`;
+
+// CANVAS PARTICLES - POWER GRID LIVE
+const c=document.getElementById('field'), x=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}resize();addEventListener('resize',resize);
+const pts=[...Array(70)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4}));
+(function loop(){
+  x.clearRect(0,0,c.width,c.height);
+  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1; x.beginPath();x.arc(p.x,p.y,1.2,0,6.28);x.fillStyle='rgba(0,240,255,0.6)';x.fill();});
+  // connect nearby
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);if(d<120){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(0,240,255,${0.15*(1-d/120)})`;x.lineWidth=0.5;x.stroke();}}
+  requestAnimationFrame(loop);
+})();
+
+// COUNTERS LIVE
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,t=parseInt(el.dataset.t);let cur=0;const inc=t/50;const it=setInterval(()=>{cur+=inc;if(cur>=t){cur=t;clearInterval(it);}el.textContent=Math.floor(cur);},30);const bar=el.parentElement.querySelector('.bar');gsap.to(bar,{width:'100%',duration:1.5,ease:'power2.out'});obs.unobserve(el);}})});document.querySelectorAll('.n').forEach(n=>obs.observe(n));
+
+// CMS PROJECTS
+function getP(){return JSON.parse(localStorage.getItem('eng_susan_projects')||'[]');}
+let filter='all';
+function render(){
+  const g=document.getElementById('grid');const all=getP();
+  const filt=filter==='all'?all:all.filter(p=>p.cat===filter);
+  g.innerHTML='';
+  if(filt.length===0){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:30px;color:#64748b;font-family:JetBrains Mono;font-size:12px">No projects in this category yet — add via CMS →</div>';return;}
+  filt.forEach(p=>{
+    const d=document.createElement('div');d.className='pCard';
+    d.innerHTML=`<div style="display:flex;justify-content:space-between"><span class="id">${p.id} • ${p.cat.toUpperCase()}</span><span style="font-family:JetBrains Mono;font-size:9px;color:#64748b">${p.photos?.length||0} 📷</span></div><h3>${p.title}</h3><p>${p.desc||''}</p>${p.photos?.[0]?`<img class="img" src="${p.photos[0]}">`:''}<div><span class="badgeM">${p.metric||'View Blog →'}</span></div>`;
+    d.onclick=()=>openM(p.id); g.appendChild(d);
+  });
+  gsap.from('.pCard',{y:20,opacity:0,duration:0.5,stagger:0.08,ease:'power3.out'});
+}
+function openM(id){
+  const p=getP().find(x=>x.id===id);if(!p)return;
+  document.getElementById('modalC').innerHTML=`<div style="font-family:JetBrains Mono;font-size:10px;color:var(--cyan)">${p.id} // ${p.cat.toUpperCase()}</div><h2 style="font-size:22px;font-weight:800;margin-top:8px">${p.title}</h2><p style="color:#94a3b8;margin-top:8px;font-size:13px">${p.desc||''}</p><div style="margin-top:14px;display:grid;gap:8px">${(p.photos||[]).map(s=>`<img src="${s}" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">`).join('')}</div><div style="margin-top:16px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px;white-space:pre-wrap;line-height:1.7;font-size:13px">${p.blog||''}</div><div style="margin-top:12px"><span style="font-family:JetBrains Mono;font-size:11px;padding:6px 10px;background:rgba(255,183,0,0.15);border-radius:20px;color:var(--amber);border:1px solid rgba(255,183,0,0.25)">${p.metric||''}</span></div>`;
   document.getElementById('modal').style.display='block';
 }
-document.querySelectorAll('.fBtn').forEach(b=>{
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.fBtn').forEach(x=>{x.style.background='transparent';x.style.color='#94a3b8';x.style.borderColor='rgba(255,255,255,0.12)'});
-    b.style.background='rgba(0,240,255,0.12)'; b.style.color='var(--accent-cyan)'; b.style.borderColor='rgba(0,240,255,0.3)';
-    activeFilter=b.dataset.f; renderGrid();
-  });
-});
-renderGrid();
+document.querySelectorAll('.fBtn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fBtn').forEach(x=>{x.style.background='transparent';x.style.color='#64748b';x.style.borderColor='rgba(255,255,255,0.12)'});b.style.background='rgba(0,240,255,0.12)';b.style.color='var(--cyan)';b.style.borderColor='var(--cyan)';filter=b.dataset.f;render();}));
+// seed if empty using REAL C.V. DATA
+if(!localStorage.getItem('eng_susan_projects')){
+  const seed=[
+    {id:'ENG-002',cat:'civil',title:'Mau-Mau Road Lot 2B — Highway Construction',desc:'Foreman In-charge / Site Agent — earthworks, drainage, pavement layers. Current project.',blog:'As Foreman In-charge Lot 2B Mau-Mau Road, responsible for supervision of earthworks, drainage structures, sub-base and base, asphalt pavement. Ensures QA/QC compliance, HSE toolbox talks, community safety. Key deliverable: 12KM national highway section.',metric:'12KM • Active • Lot 2B',photos:[],date:new Date().toISOString()},
+    {id:'ENG-003',cat:'power',title:'132/33kV Substations — Voi, Kiamutugu, Kahurura, Changamwe',desc:'Civil works for high-voltage substations for KPLC / KETRACO grid.',blog:'Civil construction for 132/33kV substations: Voi, Kiamutugu, Kahurura and Changamwe. Works included foundation excavation, blinding, reinforced concrete, earthing, control building, cable trenches, fencing. Strict adherence to BS/Eurocode and KPLC standards.',metric:'4 SITES • Commissioned • 132kV',photos:[],date:new Date().toISOString()},
+    {id:'ENG-004',cat:'civil',title:'Thika Superhighway — Water & Sewer Relocation',desc:'Relocation of utilities to pave way for superhighway expansion.',blog:'Thika Road Phase: Relocation of water supply and sewer lines. Coordination with Athi Water, Nairobi Water, traffic management, deep trench excavation, pipe laying and testing.',metric:'100% • Completed • Thika',photos:[],date:new Date().toISOString()},
+    {id:'ENG-005',cat:'civil',title:'Enterprise Road & Industrial Corridor',desc:'Rehabilitation of industrial roads and tower bases.',blog:'Enterprise Road rehabilitation and industrial access roads at Changamwe. Heavy-duty pavement design for industrial loading, drainage improvement.',metric:'+28% Efficiency • Completed',photos:[],date:new Date().toISOString()},
+  ];
+  localStorage.setItem('eng_susan_projects',JSON.stringify(seed));
+}
+render();
+// Photo from CMS
+const saved=localStorage.getItem('eng_susan_photo');
+if(saved){const im=document.getElementById('realPhoto');im.src=saved;im.style.display='block';document.getElementById('ph').style.display='none';}
 </script>
 </body></html>
