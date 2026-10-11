@@ -1,15 +1,86 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CMS - Update Real Photo</title><script src="https://cdn.tailwindcss.com"></script></head><body style="background:#0b0f19;color:#fff;font-family:monospace;padding:24px;max-width:700px;margin:auto">
-<h1 style="color:#00f0ff;font-size:28px;font-weight:800">CMS PORTAL - REAL PHOTO ONLY</h1><p style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:8px">This will DELETE that wrong person face forever and replace with your mum's real photo.</p>
-<div style="background:#161e2e;border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;margin-top:24px">
-<input type="file" id="inp" accept="image/*" style="width:100%"><div style="margin-top:16px;width:100%;height:400px;background:#000;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,240,255,0.2)"><img id="prev" style="display:none;width:100%;height:100%;object-fit:cover"><div id="txt" style="color:rgba(255,255,255,0.4);font-size:12px">Upload real photo of Eng. Susan here</div></div>
-<button onclick="save()" style="width:100%;margin-top:16px;padding:14px;background:#00f0ff;color:#000;font-weight:800;border-radius:8px">SAVE REAL PHOTO → DELETE WRONG FACE</button>
-<div id="st" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.6)"></div>
-<a href="index.html" style="display:block;text-align:center;margin-top:16px;color:#00f0ff;text-decoration:none;border:1px solid rgba(0,240,255,0.3);padding:10px;border-radius:8px">← BACK TO SITE - CHECK FIX</a>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>CMS - Projects | ENG-SUSAN</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+<style>body{background:#07090e;color:#f1f5f9;font-family:'JetBrains Mono',monospace}.card{background:#0f141f;border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px}</style>
+</head><body class="p-4 max-w-5xl mx-auto">
+<h1 class="text-2xl font-bold text-cyan-400" style="font-family:'Space Grotesk'">CMS PORTAL • PROJECTS BLOG</h1>
+<p class="text-[11px] text-white/40 mt-1">Add / Edit / Delete projects with photos & blog. Saves to localStorage + live on main site.</p>
+
+<div class="grid md:grid-cols-5 gap-4 mt-6">
+<div class="md:col-span-3 card">
+<h3 class="text-amber-400 text-sm mb-3">ADD NEW PROJECT</h3>
+<label class="text-[10px] text-white/40">CATEGORY</label>
+<select id="pCat" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<option value="civil">CIVIL</option><option value="power">POWER</option><option value="structural">STRUCTURAL</option><option value="all">ALL</option>
+</select>
+<label class="text-[10px] text-white/40">PROJECT ID (e.g ENG-007)</label><input id="pId" placeholder="ENG-007" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<label class="text-[10px] text-white/40">TITLE</label><input id="pTitle" placeholder="Mau-Mau Road Phase 2" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<label class="text-[10px] text-white/40">SHORT DESC</label><input id="pDesc" placeholder="Site Agent - earthworks" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<label class="text-[10px] text-white/40">BLOG / DETAILS (long story)</label><textarea id="pBlog" placeholder="Write full blog about this project..." class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-xs h-24"></textarea>
+<label class="text-[10px] text-white/40">METRIC BADGE (e.g 12KM • Active)</label><input id="pMetric" placeholder="12KM • Active" class="w-full mt-1 mb-2 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm">
+<label class="text-[10px] text-white/40">PHOTOS (multiple)</label><input type="file" id="pPhotos" accept="image/*" multiple class="w-full text-xs mb-2">
+<div id="photoPreview" class="flex gap-2 flex-wrap mb-3"></div>
+<button onclick="addProject()" class="w-full py-3 bg-cyan-400 text-black font-bold rounded-lg">SAVE PROJECT → PUBLISH</button>
+<div id="status" class="text-xs mt-2 text-white/50"></div>
 </div>
+
+<div class="md:col-span-2 card">
+<h3 class="text-cyan-400 text-sm mb-3">EXISTING PROJECTS (<span id="count">0</span>)</h3>
+<div id="list" class="space-y-2 max-h-[600px] overflow-y-auto"></div>
+<div class="mt-4 flex gap-2"><a href="index.html" class="flex-1 text-center py-2 bg-white/5 border border-white/10 rounded text-xs">← VIEW SITE</a><button onclick="exportJSON()" class="flex-1 py-2 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded text-xs">EXPORT JSON</button></div>
+<button onclick="clearAll()" class="w-full mt-2 py-2 bg-red-500/10 border border-red-500/20 text-red-400 rounded text-xs">CLEAR ALL PROJECTS</button>
+</div>
+</div>
+
 <script>
-const inp=document.getElementById('inp'),prev=document.getElementById('prev'),txt=document.getElementById('txt'),st=document.getElementById('st');
-let data='';
-inp.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{data=ev.target.result;prev.src=data;prev.style.display='block';txt.style.display='none';st.textContent='Selected: '+f.name;};r.readAsDataURL(f);});
-function save(){if(!data){alert('Upload real photo first');return;}localStorage.setItem('eng_susan_photo',data);st.textContent='✓ REAL PHOTO SAVED! Wrong person face deleted. Go back to site — hard refresh (Ctrl+Shift+R).';st.style.color='#22c55e';}
-const s=localStorage.getItem('eng_susan_photo');if(s){prev.src=s;prev.style.display='block';txt.style.display='none';st.textContent='Real photo already in CMS';}
-</script></body></html>
+let tempPhotos=[];
+document.getElementById('pPhotos').addEventListener('change', async e=>{
+  tempPhotos=[]; const previews=document.getElementById('photoPreview'); previews.innerHTML='';
+  for(let file of e.target.files){
+    const b64=await toBase64(file);
+    tempPhotos.push(b64);
+    const img=document.createElement('img'); img.src=b64; img.className='w-16 h-16 object-cover rounded border border-cyan-400/30'; previews.appendChild(img);
+  }
+});
+function toBase64(file){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(file);});}
+
+function getProjects(){return JSON.parse(localStorage.getItem('eng_susan_projects')||'[]');}
+function saveProjects(arr){localStorage.setItem('eng_susan_projects',JSON.stringify(arr)); renderList();}
+
+function addProject(){
+  const cat=document.getElementById('pCat').value, id=document.getElementById('pId').value||'ENG-'+Date.now().toString().slice(-3), title=document.getElementById('pTitle').value, desc=document.getElementById('pDesc').value, blog=document.getElementById('pBlog').value, metric=document.getElementById('pMetric').value;
+  if(!title){alert('Title required');return;}
+  const arr=getProjects();
+  const obj={id,cat,title,desc,blog,metric,photos:tempPhotos.length?tempPhotos:[],date:new Date().toISOString()};
+  // update if exists
+  const idx=arr.findIndex(p=>p.id===id);
+  if(idx>=0) arr[idx]=obj; else arr.unshift(obj);
+  saveProjects(arr);
+  document.getElementById('status').textContent='✓ Saved: '+title+' ('+cat+')';
+  document.getElementById('pTitle').value='';document.getElementById('pDesc').value='';document.getElementById('pBlog').value='';tempPhotos=[];document.getElementById('photoPreview').innerHTML='';
+}
+
+function renderList(){
+  const arr=getProjects(); document.getElementById('count').textContent=arr.length;
+  const list=document.getElementById('list'); list.innerHTML='';
+  arr.forEach(p=>{
+    const div=document.createElement('div'); div.className='bg-black/30 border border-white/10 rounded p-3';
+    div.innerHTML=`<div class="flex justify-between"><span class="text-[10px] text-cyan-400">${p.id} • ${p.cat.toUpperCase()}</span><button onclick="delProject('${p.id}')" class="text-[10px] text-red-400">[DEL]</button></div><div class="text-sm font-bold mt-1">${p.title}</div><div class="text-[11px] text-white/50 mt-1 line-clamp-2">${p.desc}</div><div class="text-[10px] text-amber-400 mt-2">${p.photos?.length||0} photos • ${p.metric||''}</div>`;
+    list.appendChild(div);
+  });
+}
+function delProject(id){if(!confirm('Delete '+id+'?'))return; saveProjects(getProjects().filter(p=>p.id!==id));}
+function clearAll(){if(!confirm('Clear ALL projects?'))return; localStorage.removeItem('eng_susan_projects'); renderList();}
+function exportJSON(){
+  const data=getProjects(); const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='eng-susan-projects.json'; a.click();
+}
+// seed default if empty
+if(!localStorage.getItem('eng_susan_projects')){
+  const seed=[
+    {id:'ENG-002',cat:'civil',title:'Mau-Mau Road Lot 2B',desc:'Site Agent / Foreman In-charge - earthworks, drainage, pavement',blog:'Supervising Mau-Mau Road construction Lot 2B. Managing earthworks, drainage systems and pavement layers with QA/QC compliance and HSE training.',metric:'12KM • Active',photos:[],date:new Date().toISOString()},
+    {id:'ENG-003',cat:'power',title:'132/33kV Substations',desc:'Voi, Kiamutugu, Kahurura — civil works for Kenya grid',blog:'Civil works for 3 high-voltage substations powering Kenya national grid. Foundation, earthing, control buildings.',metric:'3 SITES • Commissioned',photos:[],date:new Date().toISOString()},
+    {id:'ENG-001',cat:'structural',title:'Structural Monitoring',desc:'IoT sensors + Python + React dashboard',blog:'Autonomous structural health monitoring using IoT sensors, Python backend and React dashboard with +35% efficiency gain.',metric:'+35% • Deployed',photos:[],date:new Date().toISOString()},
+  ];
+  localStorage.setItem('eng_susan_projects',JSON.stringify(seed));
+}
+renderList();
+</script>
+</body></html>
